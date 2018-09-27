@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+}
+
+.header-container {
+    /*height: 25%;*/
+    background-color: yellow;
+}
+
+#logo-homepage {
+}
+
+.game-title {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.nav {
+    display: inline-block;
+}
+
+#main-content {
+    height: 75%;
+    background-color: green;
+}
+
+#stats {
+    border: 1px red solid;
+    background-color: black;
+    color: red;
+    width: 10vw;
+    height: 100vh;
+    float: left;
+    box-sizing: border-box;
+}
+
+#game-area {
+    width: 90%;
+    height: 100vh;
+}
+
+.card-container {
+    display: inline-block;
+    /* float: left; */
+    position: relative;
+    height: 30%;
+    width: 14%;
+}
+
+.card {
+    left: 5%;
+    top: 5%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.card img {
+    height: 80%;
+    width: 80%;
+}
+
+.front, .back {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.back {
+}
