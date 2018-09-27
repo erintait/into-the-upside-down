@@ -3,7 +3,7 @@ body {
 }
 
 .header-container {
-    height: 25%;
+    /*height: 25%;*/
     background-color: yellow;
 }
 
@@ -32,6 +32,7 @@ body {
     width: 10vw;
     height: 100vh;
     float: left;
+    box-sizing: border-box;
 }
 
 #game-area {
@@ -68,5 +69,4 @@ body {
 }
 
 .back {
-
 }
