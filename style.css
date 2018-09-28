@@ -68,5 +68,6 @@ body {
     width: 100%;
 }
 
-.back {
+.hide .back {
+    display: none;
 }
