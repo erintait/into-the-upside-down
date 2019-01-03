@@ -1,14 +1,17 @@
 body {
     margin: 0;
+    color: red;
 }
 
 .header-container {
-    background-color: yellow;
+    background-color: black;
+    background-image: url("images/logo.png");
+    background-position: center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
     box-sizing: border-box;
     border-bottom: 1px solid black;
-}
-
-#logo-homepage {
+    height: 171px;
 }
 
 .game-title {
@@ -23,12 +26,12 @@ body {
 
 #main-content {
     height: 75%;
-    background-color: green;
+    background-color: black;
 }
 
 #stats {
     border-right: 1px solid black;
-    color: black;
+    color: red;
     width: 10vw;
     height: 100vh;
     float: left;
