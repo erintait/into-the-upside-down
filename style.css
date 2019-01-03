@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    color: red;
+    color: rgb(223,9,5);
+    font-family: "Special Elite", serif;
 }
 
 .header-container {
@@ -12,6 +13,7 @@ body {
     box-sizing: border-box;
     border-bottom: 1px solid black;
     height: 171px;
+    padding-left: 8px;
 }
 
 .game-title {
@@ -31,6 +33,7 @@ body {
 
 #stats {
     border-right: 1px solid black;
+    padding-left: 8px;
     color: red;
     width: 10vw;
     height: 100vh;
@@ -72,4 +75,27 @@ body {
 
 .hide .back {
     display: none;
+}
+
+.stats-title {
+    font-size: 20px;
+}
+
+.label, .value {
+    font-size: 15px;
+}
+
+.reset {
+    background-color: black;
+    color: rgb(223,9,5);
+    border: 1px solid rgb(223,9,5);
+    font-family: "Special Elite", serif;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.reset:hover {
+    background-color: rgb(110, 3, 2);
+    text-shadow: 2px 2px black;
+    transition: .5s;
 }
