@@ -13,9 +13,7 @@ var cant_click_card = false;
 //stats variables
 var matches = 0;
 var attempts = 0;
-if(attempts = 0){
-    var accuracy = 0;
-}
+var accuracy = 0;
 var games_played = 0;
 
 function initializeApp(){
@@ -27,7 +25,6 @@ function initializeApp(){
 function displayStats(){
     $(".games-played .value").text(games_played);
     $('.attempts .value').text(attempts);
-    console.log('attempts', attempts);
     var accuracyMath = matches/attempts * 100;
     accuracy = accuracyMath.toFixed(2) + '%';
     $('.accuracy .value').text(accuracy);
@@ -38,13 +35,15 @@ function addClickToReset(){
 }
 
 function reset_stats(){
+    debugger;
     games_played++;
     matches = 0;
     attempts = 0;
-    if(attempts === 0) {
-        accuracy = 0;
-        }
     displayStats();
+    if(attempts === 0) {
+        accuracy = '0.00%';
+    }
+    $('.accuracy .value').text(accuracy);
     $('.card').removeClass('hide');
     cardArray = [
         "images/card01.png",
