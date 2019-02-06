@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.game {
+    display: flex;
+    flex-flow: row-wrap;
+}
+
+.front, .back {
+    position: absolute;
+}
