@@ -3,11 +3,29 @@
     justify-content: center;
 }
 
-.game {
+.stats {
     display: flex;
-    flex-flow: row-wrap;
+    justify-content: space-around;
 }
 
-.front, .back {
+.game {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 20%;
+}
+
+.front {
     position: absolute;
+}
+
+.back {
+    position: relative;
 }
