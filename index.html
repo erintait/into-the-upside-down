@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Erin Tait">
+    <meta name="description" content="A Stranger Things-themed memory match game">
     <title>Memory Match</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="main.js">
-
-
-
-    </script>
+    <script type="text/javascript" src="main.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="header-container">
-        <!--game logo here - source: https://pixabay.com/en/building-placeholder-construction-159338/-->
-        <img id="logo-homepage" src="game-logo.png">
-        <h1 class="game-title">Memory Match</h1>
-        <!--settings link - goes nowhere at this point-->
-        <ul class="nav">
-            <li class="nav-li"><a href="#">Settings</a></li>
+    <section class="header-container">
+        <img src="images/logo.png">
+        <!-- <h1 class="game-title">Memory Match</h1> -->
+        <!-- <ul class="nav">
             <li class="nav-li"><a href="about.html">About</a></li>
-        </ul>
-    </div>
+        </ul> -->
+    </section>
     <div id="main-content">
         <div id="stats">
-            <h3>Statistics</h3>
+            <h3 class="stats-title">Statistics</h3>
             <div class="games-played">
                 <p class="label">Games Played: <span class="value"></span></p>
             </div>
@@ -33,116 +30,114 @@
             <div class="accuracy">
                 <p class="label">Accuracy: <span class="value"></span></p>
             </div>
-            <button class="reset">Reset Game</button>
+            <button class="reset">Reset</button>
         </div>
 
         <div id="game-area">
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardA.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardB.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardC.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardD.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardE.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardF.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardG.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardH.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardI.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardI.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardA.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardB.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardC.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardD.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
+                </div>
+            </div>
+                <div class="card">
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
+                </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardE.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="front"><img src="dog-cardF.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card">
-                    <div class="front"><img src="dog-cardG.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card">
-                    <div class="front"><img src="dog-cardH.png"></div>
-                    <div class="back"><img src="card-back.png"></div>
+                    <div class="front"></div>
+                    <div class="back"><img src="images/back.png"></div>
                 </div>
             </div>
         </div>
