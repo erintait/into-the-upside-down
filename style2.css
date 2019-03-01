@@ -3,10 +3,38 @@
     justify-content: center;
 }
 
+body {
+    font-family: "Special Elite", serif;
+    color: rgb(223,9,5);
+    background: black;
+    margin: 0;
+}
+
 .stats {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.stats-title {
+    font-size: 32px;
+}
+
+.reset {
+    background-color: black;
+    color: rgb(223,9,5);
+    border: 1px solid rgb(223,9,5);
+    font-family: "Special Elite", serif;
+    font-size: 25px;
+    padding: 10px;
+    transition: background-color .5s;
+    border-radius: 10px;
+}
+
+.reset:hover {
+    background-color: rgb(110, 3, 2);
+    color: red;
+    text-shadow: 2px 2px black;
 }
 
 .game {
@@ -15,35 +43,42 @@
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-image: url("images/background1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .card {
     position: relative;
     height: 100%;
-    width: 20%;
-    perspective: 1000px;
-}
-
-.card:hover {
-    transform: rotate(180deg);
-}
-
-.front, .back {
-    position: absolute;
+    /* width: 20%; */
 }
 
 .front {
-    z-index: 1;
+    position: absolute;
+}
+
+.front img {
+    border-radius: 10px;
 }
 
 .back {
-    z-index: 2;
+    position: relative;
+}
+
+.back img {
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
 }
 
 .modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;

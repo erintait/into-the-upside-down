@@ -61,7 +61,6 @@ function addClickToReset(){
 }
 
 function reset_stats(){
-    debugger;
     games_played++;
     matches = 0;
     attempts = 0;
