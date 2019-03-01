@@ -6,6 +6,7 @@
 .stats {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .game {
@@ -20,20 +21,29 @@
     position: relative;
     height: 100%;
     width: 20%;
+    perspective: 1000px;
 }
 
-.front {
+.card:hover {
+    transform: rotate(180deg);
+}
+
+.front, .back {
     position: absolute;
 }
 
+.front {
+    z-index: 1;
+}
+
 .back {
-    position: relative;
+    z-index: 2;
 }
 
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
