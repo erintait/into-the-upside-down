@@ -10,11 +10,37 @@ var first_card_source='';
 var second_card_source='';
 var cant_click_card = false;
 
-//stats variables
+// stats variables
 var matches = 0;
 var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
+
+// cards
+
+cardArray = [
+    "images/card01.png",
+    "images/card02.png",
+    "images/card03.png",
+    "images/card04.png",
+    "images/card05.png",
+    "images/card06.png",
+    "images/card07.png",
+    "images/card08.png",
+    "images/card09.png",
+    "images/card10.png",
+    "images/card01.png",
+    "images/card02.png",
+    "images/card03.png",
+    "images/card04.png",
+    "images/card05.png",
+    "images/card06.png",
+    "images/card07.png",
+    "images/card08.png",
+    "images/card09.png",
+    "images/card10.png"
+];
+var randomizedOnce = [];
 
 function initializeApp(){
     addClickToCards();
@@ -35,7 +61,6 @@ function addClickToReset(){
 }
 
 function reset_stats(){
-    debugger;
     games_played++;
     matches = 0;
     attempts = 0;
@@ -50,20 +75,22 @@ function reset_stats(){
         "images/card02.png",
         "images/card03.png",
         "images/card04.png",
-        "dog-cardE.png",
-        "dog-cardF.png",
-        "dog-cardG.png",
-        "dog-cardH.png",
-        "dog-cardI.png",
-        "dog-cardA.png",
-        "dog-cardB.png",
-        "dog-cardC.png",
-        "dog-cardD.png",
-        "dog-cardE.png",
-        "dog-cardF.png",
-        "dog-cardG.png",
-        "dog-cardH.png",
-        "dog-cardI.png"
+        "images/card05.png",
+        "images/card06.png",
+        "images/card07.png",
+        "images/card08.png",
+        "images/card09.png",
+        "images/card10.png",
+        "images/card01.png",
+        "images/card02.png",
+        "images/card03.png",
+        "images/card04.png",
+        "images/card05.png",
+        "images/card06.png",
+        "images/card07.png",
+        "images/card08.png",
+        "images/card09.png",
+        "images/card10.png"
     ];
     appendRandomizedCards();
 }
@@ -121,28 +148,6 @@ function handleCardClick(){
     }
 
 }
-
-var cardArray = [
-    "dog-cardA.png",
-    "dog-cardB.png",
-    "dog-cardC.png",
-    "dog-cardD.png",
-    "dog-cardE.png",
-    "dog-cardF.png",
-    "dog-cardG.png",
-    "dog-cardH.png",
-    "dog-cardI.png",
-    "dog-cardA.png",
-    "dog-cardB.png",
-    "dog-cardC.png", 
-    "dog-cardD.png",
-    "dog-cardE.png",
-    "dog-cardF.png",
-    "dog-cardG.png",
-    "dog-cardH.png",
-    "dog-cardI.png"
-];
-var randomizedOnce = [];
 
 //grabbed following code from https://bost.ocks.org/mike/shuffle/
 
