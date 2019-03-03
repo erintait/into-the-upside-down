@@ -17,7 +17,6 @@ var accuracy = 0;
 var games_played = 0;
 
 // cards
-
 cardArray = [
     "images/card01.png",
     "images/card02.png",
