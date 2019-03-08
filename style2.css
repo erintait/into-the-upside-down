@@ -29,6 +29,7 @@ body {
     padding: 10px;
     transition: background-color .5s;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .reset:hover {
@@ -37,16 +38,18 @@ body {
     text-shadow: 2px 2px black;
 }
 
+.game-background {
+    background-image: url("images/background1.jpg");
+}
+
 .game {
     display: flex;
     flex-direction: row;
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-image: url("images/background1.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    width: 62%;
+    margin: 0 auto;
 }
 
 .card {
@@ -61,6 +64,7 @@ body {
 
 .front img {
     border-radius: 10px;
+    box-shadow: 3px 3px 5px #000;
 }
 
 .back {
