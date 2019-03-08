@@ -70,7 +70,11 @@ body {
     width: 100%;
 }
 
-.hide .back {
+.front img, .back img {
+    border-radius: 10px;
+}
+
+.hidden .back {
     display: none;
 }
 

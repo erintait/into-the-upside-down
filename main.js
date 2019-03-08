@@ -23,7 +23,6 @@ cardArray = [
     "images/card03.png",
     "images/card04.png",
     "images/card05.png",
-    "images/card06.png",
     "images/card07.png",
     "images/card08.png",
     "images/card09.png",
@@ -33,7 +32,6 @@ cardArray = [
     "images/card03.png",
     "images/card04.png",
     "images/card05.png",
-    "images/card06.png",
     "images/card07.png",
     "images/card08.png",
     "images/card09.png",
@@ -68,14 +66,13 @@ function reset_stats(){
         accuracy = '0.00%';
     }
     $('.accuracy .value').text(accuracy);
-    $('.card').removeClass('hide');
+    $('.card').removeClass('hidden');
     cardArray = [
         "images/card01.png",
         "images/card02.png",
         "images/card03.png",
         "images/card04.png",
         "images/card05.png",
-        "images/card06.png",
         "images/card07.png",
         "images/card08.png",
         "images/card09.png",
@@ -85,7 +82,6 @@ function reset_stats(){
         "images/card03.png",
         "images/card04.png",
         "images/card05.png",
-        "images/card06.png",
         "images/card07.png",
         "images/card08.png",
         "images/card09.png",
@@ -95,13 +91,12 @@ function reset_stats(){
 }
 
 function revealCard(clickedCard){
-
-    $(clickedCard).addClass('hide');
+    $(clickedCard).addClass('hidden');
 }
 
 function hideMismatchedCards(){
-    $(first_card_clicked).removeClass('hide');
-    $(second_card_clicked).removeClass('hide');
+    $(first_card_clicked).removeClass('hidden');
+    $(second_card_clicked).removeClass('hidden');
     first_card_clicked=null;
     second_card_clicked=null;
 }
