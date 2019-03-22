@@ -135,7 +135,7 @@ function handleCardClick(){
             cant_click_card = true;
             attempts++;
             displayStats();
-            setTimeout(hideMismatchedCards, 2000);
+            setTimeout(hideMismatchedCards, 1500);
             cant_click_card = false;
             return
         }
