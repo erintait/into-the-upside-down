@@ -6,11 +6,13 @@ body {
 }
 
 .header-container {
-    background-color: #05263a;
+    background-color: black;
+    text-align: center;
+    /* background-color: #05263a; */
     /* background-image: url("images/logo.png"); */
-    background-position: center;
+    /* background-position: center; */
     /* background-size: cover; */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     height: 171px;
     padding-left: 8px;
 }
@@ -35,6 +37,8 @@ body {
     color: red;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid red;
 }
 
 #game-area {
@@ -43,6 +47,7 @@ body {
     background-repeat: no-repeat;
     width: 90%;
     height: 100vh;
+    text-align: center;
 }
 
 .card-container {
