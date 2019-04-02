@@ -42,7 +42,10 @@ var randomizedOnce = [];
 function initializeApp(){
     addClickToCards();
     addClickToReset();
-    appendRandomizedCards();
+    addClickToClose();
+    appendRandomizedCards(cardArray);
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
 }
 
 function displayStats(){
@@ -57,8 +60,14 @@ function addClickToReset(){
     $('.reset').click(reset_stats);
 }
 
+function addClickToClose(){
+    $('.close').click(closeModal);
+}
+
 function closeModal(){
-    $('.close').click(function(){modal.style.display = "none"})
+    $('span.close').click(function(){
+        modal.style.display = "none";
+    })
 }
 
 function reset_stats(){
@@ -74,7 +83,6 @@ function reset_stats(){
         accuracy = '0.00%';
     }
     $('.accuracy .value').text(accuracy);
-    $('.card').removeClass('hidden');
     cardArray = [
         "images/card01.png",
         "images/card02.png",
@@ -95,7 +103,10 @@ function reset_stats(){
         "images/card09.png",
         "images/card10.png"
     ];
-    appendRandomizedCards();
+    appendRandomizedCards(cardArray);
+    $('.card').removeClass('hidden');
+    $('.card').removeClass('fade');
+    
 }
 
 function revealCard(clickedCard){
@@ -135,12 +146,8 @@ function handleCardClick(){
             match_counter++;
             attempts++;
             displayStats();
-            var firstCard = $(first_card_clicked).find('.front > img');
-            console.log('first card', firstCard[0]);
-            var secondCard = $(second_card_clicked).find('.front > img').attr('src');
-            console.log('second card', secondCard[0]);
-            // firstCard[0].addClass('hidden');
-            // secondCard[0].addClass('hidden');
+            $(first_card_clicked).addClass('fade');
+            $(second_card_clicked).addClass('fade');
             first_card_clicked = null;
             second_card_clicked = null;
             if(match_counter === total_possible_matches) {
@@ -186,7 +193,7 @@ function shuffleCards(arrayToShuffle) {
     return shuffledCards;
 }
 
-function appendRandomizedCards() {
+function appendRandomizedCards(cardArray) {
     var shuffledCards = shuffleCards(cardArray);
     var cardDivs = $('div .front');
     for (var i = 0; i < cardDivs.length; i++) {
@@ -195,8 +202,9 @@ function appendRandomizedCards() {
     }
 }
 
-// known bugs to fix:
-// 1 when you click the same image twice, it sees the sources are the same and considers them a match
-// 2 if you click an unmatched card and then click a previously matched card, it sees they do not match, and flips both the unmatched AND the previously matched cards over.
-    // possible solution: put all the playable cards into an array, remove them from the array of clickable elements once it is matched?
-
+//to do list:
+// 1 - fix header, maybe use hero image type thing?
+// 2 - add favicon (an eggo?)
+// 3 - media queries
+// 4 - close button on modal doesn't work
+// 5 - vertically and horizontally center win modal on screen
