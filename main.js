@@ -135,6 +135,12 @@ function handleCardClick(){
             match_counter++;
             attempts++;
             displayStats();
+            var firstCard = $(first_card_clicked).find('.front > img');
+            console.log('first card', firstCard[0]);
+            var secondCard = $(second_card_clicked).find('.front > img').attr('src');
+            console.log('second card', secondCard[0]);
+            // firstCard[0].addClass('hidden');
+            // secondCard[0].addClass('hidden');
             first_card_clicked = null;
             second_card_clicked = null;
             if(match_counter === total_possible_matches) {

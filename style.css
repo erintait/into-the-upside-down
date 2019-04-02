@@ -75,7 +75,8 @@ body {
     width: 80%;
 }
 
-.card img.back {
+.back {
+    opacity: 1;
     -moz-transition: opacity .5s ease-in-out;
     -webkit-transition: opacity .5s ease-in-out;
     transition: opacity .5s ease-in-out;
@@ -83,12 +84,6 @@ body {
 
 .card img.hidden {
     opacity: 0;
-}
-
-/* FADE CSS */
-
-.fade {
-    transition: opacity .5s;
 }
 
 /* CARD CSS*/
@@ -101,7 +96,11 @@ body {
 }
 
 .back img {
-    
+    transition: opacity 0.5s;
+}
+
+.front img {
+    transition: opacity 2s;
 }
 
 img.back:hover {
@@ -112,9 +111,9 @@ img.back:hover {
     border-radius: 10px;
 }
 
-/* .hidden .back img { */
-    /* display: none; */
-/* } */
+.hidden .back img {
+    opacity: 0;
+}
 
 .stats-title {
     font-size: 20px;
