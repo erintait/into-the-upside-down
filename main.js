@@ -65,18 +65,16 @@ function addClickToClose(){
 }
 
 function closeModal(){
-    $('span.close').click(function(){
-        modal.style.display = "none";
-    })
+    $('.modal').removeClass('modal-visible');
 }
 
 function reset_stats(){
-    if(modal.style.display === "block"){
-        modal.style.display = "none";
-        addClickToCards();
+    if ($('.modal').hasClass('modal-visible')){
+        $('.modal').removeClass('modal-visible');
     }
     games_played++;
     matches = 0;
+    match_counter = 0;
     attempts = 0;
     displayStats();
     if(attempts === 0) {
@@ -103,9 +101,10 @@ function reset_stats(){
         "images/card09.png",
         "images/card10.png"
     ];
-    appendRandomizedCards(cardArray);
     $('.card').removeClass('hidden');
     $('.card').removeClass('fade');
+    appendRandomizedCards(cardArray);
+    addClickToCards();
     
 }
 
@@ -116,8 +115,8 @@ function revealCard(clickedCard){
 function hideMismatchedCards(){
     $(first_card_clicked).removeClass('hidden');
     $(second_card_clicked).removeClass('hidden');
-    first_card_clicked=null;
-    second_card_clicked=null;
+    first_card_clicked = null;
+    second_card_clicked = null;
 }
 
 function addClickToCards(){
@@ -151,7 +150,9 @@ function handleCardClick(){
             first_card_clicked = null;
             second_card_clicked = null;
             if(match_counter === total_possible_matches) {
-                setTimeout((function(){modal.style.display = "block";}), 2000);
+                setTimeout(function(){
+                    $('#modal').addClass('modal-visible');
+                }, 2000);
             }
         }
         else {
@@ -169,7 +170,7 @@ function handleCardClick(){
 
 window.onclick = function(event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+        $('#modal').removeClass('modal-visible');
     }
 }
 
@@ -203,8 +204,7 @@ function appendRandomizedCards(cardArray) {
 }
 
 //to do list:
-// 1 - fix header, maybe use hero image type thing?
-// 2 - add favicon (an eggo?)
-// 3 - media queries
-// 4 - close button on modal doesn't work
-// 5 - vertically and horizontally center win modal on screen
+// 1 - media queries
+// 2 - vertically and horizontally center win modal on screen
+// 3 - modal has a scroll bar for some reason??
+// 4 - cards show for a second before hiding again when i reshuffle
