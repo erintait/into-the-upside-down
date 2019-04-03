@@ -65,12 +65,12 @@ function addClickToClose(){
 }
 
 function closeModal(){
-    $('.modal').removeClass('modal-visible');
+    $('.modal').addClass('modal-hide');
 }
 
 function reset_stats(){
-    if ($('.modal').hasClass('modal-visible')){
-        $('.modal').removeClass('modal-visible');
+    if (!$('.modal').hasClass('modal-hide')){
+        $('.modal').addClass('modal-hide');
     }
     games_played++;
     matches = 0;
@@ -103,8 +103,10 @@ function reset_stats(){
     ];
     $('.card').removeClass('hidden');
     $('.card').removeClass('fade');
-    appendRandomizedCards(cardArray);
-    addClickToCards();
+    setTimeout(function(){
+        appendRandomizedCards(cardArray);
+        addClickToCards();
+    }, 1000);
     
 }
 
@@ -151,7 +153,7 @@ function handleCardClick(){
             second_card_clicked = null;
             if(match_counter === total_possible_matches) {
                 setTimeout(function(){
-                    $('#modal').addClass('modal-visible');
+                    $('#modal').removeClass('modal-hide');
                 }, 2000);
             }
         }
@@ -170,7 +172,7 @@ function handleCardClick(){
 
 window.onclick = function(event) {
     if (event.target == modal) {
-        $('#modal').removeClass('modal-visible');
+        $('#modal').addClass('modal-hide');
     }
 }
 
@@ -205,6 +207,3 @@ function appendRandomizedCards(cardArray) {
 
 //to do list:
 // 1 - media queries
-// 2 - vertically and horizontally center win modal on screen
-// 3 - modal has a scroll bar for some reason??
-// 4 - cards show for a second before hiding again when i reshuffle
