@@ -44,17 +44,13 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
     // displayRandomBG();
 }
 
 function displayRandomBG(){
-    $('#game-bg > img').remove();
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    var selectedBG = Math.floor(Math.random() * bgArray.length);
     
-
-    $('#game-bg').prepend('<img src="images/' + bgArray[selectedBG] + '">')
-    console.log('background[selectedBG]', bgArray[selectedBG]);
 }
 
 function displayStats(){
