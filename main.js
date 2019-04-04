@@ -44,8 +44,17 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
+    // displayRandomBG();
+}
+
+function displayRandomBG(){
+    $('#game-bg > img').remove();
     var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+    var selectedBG = Math.floor(Math.random() * bgArray.length);
+    
+
+    $('#game-bg').prepend('<img src="images/' + bgArray[selectedBG] + '">')
+    console.log('background[selectedBG]', bgArray[selectedBG]);
 }
 
 function displayStats(){
@@ -72,6 +81,7 @@ function reset_stats(){
     if (!$('.modal').hasClass('modal-hide')){
         $('.modal').addClass('modal-hide');
     }
+    // displayRandomBG();
     games_played++;
     matches = 0;
     match_counter = 0;
@@ -178,11 +188,10 @@ window.onclick = function(event) {
 
 //grabbed following code from https://bost.ocks.org/mike/shuffle/
 
-function shuffleCards(arrayToShuffle) {
+function shuffleCards(cardsToShuffle) {
     var shuffledCards = [];
-    var arrayLength = arrayToShuffle.length;
+    var arrayLength = cardsToShuffle.length;
     var randomNumber;
-
     // While there remain elements to shuffle…
     while (arrayLength) {
 
@@ -190,13 +199,13 @@ function shuffleCards(arrayToShuffle) {
         var randomNumber = Math.floor(Math.random() * arrayLength--);
 
         // And move it to the new array.
-        shuffledCards.push(arrayToShuffle.splice(randomNumber, 1)[0]);
+        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
     }
 
     return shuffledCards;
 }
 
-function appendRandomizedCards(cardArray) {
+function appendRandomizedCards() {
     var shuffledCards = shuffleCards(cardArray);
     var cardDivs = $('div .front');
     for (var i = 0; i < cardDivs.length; i++) {
@@ -207,3 +216,4 @@ function appendRandomizedCards(cardArray) {
 
 //to do list:
 // 1 - media queries
+// 2 - tiny black gap at the bottom, issue appears to be in #main-content
