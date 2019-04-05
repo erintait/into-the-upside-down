@@ -6,6 +6,8 @@ var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 9;
 var match_counter = 0;
+var first_card_grandparent = null;
+var second_card_grandparent = null;
 var first_card_source='';
 var second_card_source='';
 var cant_click_card = false;
@@ -128,7 +130,7 @@ function hideMismatchedCards(){
 }
 
 function addClickToCards(){
-    $('.card').click(handleCardClick);
+    $('.back > img').click(handleCardClick);
 }
 
 function handleCardClick(){
@@ -138,17 +140,26 @@ function handleCardClick(){
     var card_clicked = event.currentTarget;
     if(first_card_clicked === null) {
         first_card_clicked = event.currentTarget;
-        first_card_source = $(event.currentTarget).find('.front > img').attr('src');
-        revealCard(first_card_clicked);
+        first_card_grandparent = $(first_card_clicked).parent().parent();
+        first_card_source = $(first_card_grandparent).find('.front > img').attr('src');
+        console.log('first card source', first_card_source);
+        // first_card_source = first_card_clicked.find('.front > img').attr('src');
+        // console.log('first card source', first_card_source);
+        // console.log('first card clicked', first_card_clicked);
+        // first_card_source = $(event.currentTarget).find('.front > img').attr('src');
+        revealCard(first_card_grandparent);
         $(first_card_clicked).off();
         return
     }
     else if(second_card_clicked === null) {
         second_card_clicked = event.currentTarget;
-        second_card_source = $(event.currentTarget).find('.front > img').attr('src');
-        revealCard(second_card_clicked);
+        second_card_grandparent = $(second_card_clicked).parent().parent();
+        second_card_source = $(second_card_grandparent).find('front > img').attr('src');
+        console.log('second card source', second_card_source);
+        revealCard(second_card_grandparent);
         $(second_card_clicked).off();
         if(first_card_source === second_card_source) {
+            debugger;
             matches++;
             match_counter++;
             attempts++;
