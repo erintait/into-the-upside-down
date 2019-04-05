@@ -46,13 +46,12 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
-    // displayRandomBG();
+    displayRandomBG();
 }
 
 function displayRandomBG(){
-    
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
 }
 
 function displayStats(){
@@ -140,26 +139,17 @@ function handleCardClick(){
     var card_clicked = event.currentTarget;
     if(first_card_clicked === null) {
         first_card_clicked = event.currentTarget;
-        first_card_grandparent = $(first_card_clicked).parent().parent();
-        first_card_source = $(first_card_grandparent).find('.front > img').attr('src');
-        console.log('first card source', first_card_source);
-        // first_card_source = first_card_clicked.find('.front > img').attr('src');
-        // console.log('first card source', first_card_source);
-        // console.log('first card clicked', first_card_clicked);
-        // first_card_source = $(event.currentTarget).find('.front > img').attr('src');
-        revealCard(first_card_grandparent);
+        first_card_source = $(event.currentTarget).find('.front > img').attr('src');
+        revealCard(first_card_clicked);
         $(first_card_clicked).off();
         return
     }
     else if(second_card_clicked === null) {
         second_card_clicked = event.currentTarget;
-        second_card_grandparent = $(second_card_clicked).parent().parent();
-        second_card_source = $(second_card_grandparent).find('front > img').attr('src');
-        console.log('second card source', second_card_source);
-        revealCard(second_card_grandparent);
+        second_card_source = $(event.currentTarget).find('.front > img').attr('src');
+        revealCard(second_card_clicked);
         $(second_card_clicked).off();
         if(first_card_source === second_card_source) {
-            debugger;
             matches++;
             match_counter++;
             attempts++;
@@ -186,6 +176,68 @@ function handleCardClick(){
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+    // if(cant_click_card){
+    //     return;
+    // }
+    // var card_clicked = event.currentTarget;
+    // if(first_card_clicked === null) {
+    //     first_card_clicked = event.currentTarget;
+        // first_card_grandparent = $(first_card_clicked).parent().parent();
+        // first_card_source = $(first_card_grandparent).find('.front > img').attr('src');
+        // console.log('first card source', first_card_source);
+        // first_card_source = first_card_clicked.find('.front > img').attr('src');
+        // console.log('first card source', first_card_source);
+        // console.log('first card clicked', first_card_clicked);
+//         first_card_source = $(event.currentTarget).find('.front > img').attr('src');
+//         revealCard(first_card_grandparent);
+//         $(first_card_clicked).off();
+//         return
+//     }
+//     else if(second_card_clicked === null) {
+//         second_card_clicked = event.currentTarget;
+//         second_card_grandparent = $(second_card_clicked).parent().parent();
+//         second_card_source = $(second_card_grandparent).find('front > img').attr('src');
+//         console.log('second card source', second_card_source);
+//         revealCard(second_card_grandparent);
+//         $(second_card_clicked).off();
+//         if(first_card_source === second_card_source) {
+//             debugger;
+//             matches++;
+//             match_counter++;
+//             attempts++;
+//             displayStats();
+//             $(first_card_clicked).addClass('fade');
+//             $(second_card_clicked).addClass('fade');
+//             first_card_clicked = null;
+//             second_card_clicked = null;
+//             if(match_counter === total_possible_matches) {
+//                 setTimeout(function(){
+//                     $('#modal').removeClass('modal-hide');
+//                 }, 2000);
+//             }
+//         }
+//         else {
+//             cant_click_card = true;
+//             $(first_card_clicked).on("click", handleCardClick);
+//             $(second_card_clicked).on("click", handleCardClick);
+//             attempts++;
+//             displayStats();
+//             setTimeout(hideMismatchedCards, 1500);
+//             cant_click_card = false;
+//             return
+//         }
+//     }
+// }
 
 window.onclick = function(event) {
     if (event.target == modal) {
