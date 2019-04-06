@@ -1,5 +1,8 @@
 $(document).ready(function() {
     initializeApp();
+    $(window).on('orientationchange', function(event) {
+        console.log(orientation);
+    });
 });
 
 var first_card_clicked = null;
@@ -45,10 +48,21 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg', 'background4.jpg', 'background5.png'];
     $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
     // displayRandomBG();
 }
+
+// think i need jQuery mobile for this
+// $( window ).on( "orientationchange", function( event ) {
+// 	console.log(event.orientation);
+// 	var bgArray = ['background4.jpg', 'background5.png'];
+// 	$('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+// });
+
+$(document).ready(function() {
+
+});
 
 function displayRandomBG(){
     
