@@ -1,14 +1,15 @@
 body {
+    height: 100vh;
     margin: 0;
     padding: 0;
     background-color: #05263a;
     color: rgb(223,9,5);
     font-family: "Special Elite", serif;
-    height: 100%;
+    /* height: 100%; */
 }
 
 html {
-    height: 100%;
+    /* height: 100%; */
 }
 
 .wrapper {
@@ -20,10 +21,9 @@ html {
     background-position: center;
     background-size: cover;
     background-color: black;
-    padding: 3%;
+    /* padding: 3%; */
     text-align: center;
-    height: 10%;
-    padding-left: 8px;
+    /* height: 10%; */
 }
 
 .game-title {
@@ -75,34 +75,36 @@ html {
 }
 
 #game-bg {
+    position: relative;
     /* background-image: url("images/background1.jpg"); */
-    background-size: cover;
+    /* background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
-    height: 100%;
+    position: relative; */
+    height: 80%;
 }
 
 #game-bg img {
-    display: block;
-    max-height: 100%;
+    /* display: block; */
+    /* height: 100%; */
 }
 
 #game-area {
+    transform: translate(-50%, -50%);
+    left: 50%;
     background-image: url(images/background1.jpg);
     background-size: cover;
     background-position: center;
     /* height: 100%; */
+    /* height: 70vh; */
     text-align: center;
     /* padding-bottom: 5px; */
-    position: relative;
-    top: 0;
-    width: 100%;
-
-    /* display: grid;
-    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
-    grid-template-rows: 33% 33% 33%; */
-
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    /* display: grid; */
+    /* grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%; */
+    /* grid-template-rows: 33% 33% 33%; */
     /* display: flex;
     flex-flow: row wrap; */
 }
@@ -113,10 +115,9 @@ html {
     /* margin: 0 auto; */
     /* width: 85%; */
     /* flex: 1 0 16%; */
-    margin: 5px 0;
+    margin: 0 auto;
     width: 16%;
     display: inline-block;
-    
     /* flex-grow: 1;
     flex: 1 1 16%; */
 }
@@ -126,13 +127,14 @@ html {
     /* left: 1%; */
     /* top: 5%; */
     /* height: 100%; */
-    width: 100%;
+    /* width: 100%; */
     position: relative;
+    cursor: pointer;
 }
 
 .card img {
     /* height: 80%; */
-    width: 80%;
+    /* width: 80%; */
 }
 
 .back {
@@ -297,15 +299,15 @@ img.back:hover {
 }
 
 @media screen and (orientation: portrait){
-    #game-bg {
-
+    #game-area {
+        background-image: url("images/background5.png");
     }
     .card-container {
-        width: 27%;
+        /* width: 27%; */
     }
     #game-area {
-        /* grid-template-columns: 33% 33% 33%;
-        grid-template-rows: 16% 16% 16% 16% 16% 16%; */
+        /* grid-template-columns: 33% 33% 33%; */
+        /* grid-template-rows: 16% 16% 16% 16% 16% 16%; */
     }
 
     #game-area img {

@@ -1,5 +1,8 @@
 $(document).ready(function() {
     initializeApp();
+    $(window).on('orientationchange', function(event) {
+        console.log(orientation);
+    });
 });
 
 var first_card_clicked = null;
@@ -18,24 +21,25 @@ var games_played = 0;
 
 // cards
 cardArray = [
-    "images/card01.png",
-    "images/card02.png",
-    "images/card03.png",
-    "images/card04.png",
-    "images/card05.png",
-    "images/card07.png",
-    "images/card08.png",
-    "images/card09.png",
-    "images/card10.png",
-    "images/card01.png",
-    "images/card02.png",
-    "images/card03.png",
-    "images/card04.png",
-    "images/card05.png",
-    "images/card07.png",
-    "images/card08.png",
-    "images/card09.png",
-    "images/card10.png"
+    "images/card1.jpg",
+    "images/card2.jpg",
+    "images/card3.jpg",
+    "images/card4.jpg",
+    "images/card5.jpg",
+    "images/card6.jpg",
+    "images/card7.jpg",
+    "images/card8.jpg",
+    "images/card9.jpg",
+    "images/card1.jpg",
+    "images/card2.jpg",
+    "images/card3.jpg",
+    "images/card4.jpg",
+    "images/card5.jpg",
+    "images/card6.jpg",
+    "images/card7.jpg",
+    "images/card8.jpg",
+    "images/card9.jpg"
+    // "images/card10.jpg"
 ];
 var randomizedOnce = [];
 
@@ -44,10 +48,21 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg', 'background4.jpg', 'background5.png'];
     $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
     // displayRandomBG();
 }
+
+// think i need jQuery mobile for this
+// $( window ).on( "orientationchange", function( event ) {
+// 	console.log(event.orientation);
+// 	var bgArray = ['background4.jpg', 'background5.png'];
+// 	$('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+// });
+
+$(document).ready(function() {
+
+});
 
 function displayRandomBG(){
     
@@ -88,24 +103,25 @@ function reset_stats(){
     }
     $('.accuracy .value').text(accuracy);
     cardArray = [
-        "images/card01.png",
-        "images/card02.png",
-        "images/card03.png",
-        "images/card04.png",
-        "images/card05.png",
-        "images/card07.png",
-        "images/card08.png",
-        "images/card09.png",
-        "images/card10.png",
-        "images/card01.png",
-        "images/card02.png",
-        "images/card03.png",
-        "images/card04.png",
-        "images/card05.png",
-        "images/card07.png",
-        "images/card08.png",
-        "images/card09.png",
-        "images/card10.png"
+        "images/card1.jpg",
+        "images/card2.jpg",
+        "images/card3.jpg",
+        "images/card4.jpg",
+        "images/card5.jpg",
+        "images/card6.jpg",
+        "images/card7.jpg",
+        "images/card8.jpg",
+        "images/card9.jpg",
+        "images/card1.jpg",
+        "images/card2.jpg",
+        "images/card3.jpg",
+        "images/card4.jpg",
+        "images/card5.jpg",
+        "images/card6.jpg",
+        "images/card7.jpg",
+        "images/card8.jpg",
+        "images/card9.jpg"
+        // "images/card10.jpg"
     ];
     $('.card').removeClass('hidden');
     $('.card').removeClass('fade');
