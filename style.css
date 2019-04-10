@@ -76,6 +76,7 @@ body {
     padding: 10px;
     transition: background-color .5s;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .reset:focus{
