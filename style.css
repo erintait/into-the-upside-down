@@ -5,11 +5,6 @@ body {
     background-color: #05263a;
     color: rgb(223,9,5);
     font-family: "Special Elite", serif;
-    /* height: 100%; */
-}
-
-html {
-    /* height: 100%; */
 }
 
 .wrapper {
@@ -21,9 +16,15 @@ html {
     background-position: center;
     background-size: cover;
     background-color: black;
-    /* padding: 3%; */
     text-align: center;
-    /* height: 10%; */
+    height: 15%;
+}
+
+.header-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
 }
 
 .game-title {
@@ -48,10 +49,6 @@ html {
 
 .game-title-subtitle {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
-}
-
-.nav {
-    display: inline-block;
 }
 
 #main-content {
