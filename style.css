@@ -7,24 +7,20 @@ body {
     font-family: "Special Elite", serif;
 }
 
-.wrapper {
-    height: 100%;
-}
-
 .header-container {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(images/heroimg.png);
     background-position: center;
     background-size: cover;
     background-color: black;
-    text-align: center;
     height: 15%;
+    text-align: center;
 }
 
 .header-wrapper {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .game-title {
@@ -37,7 +33,6 @@ body {
 
 .game-title-flipped {
     font-size: 60px;
-    /* display: inline-block; */
     margin-top: -20px;
     margin-bottom: 0;
     -webkit-transform:rotate(-180deg);
@@ -57,14 +52,13 @@ body {
 }
 
 #stats {
-    padding-left: 8px;
     color: red;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid rgb(223,9,5);
     border-bottom: 1px solid rgb(223,9,5);
-    position: relative;
+    /* position: relative; */
 }
 
 .stats-title {
