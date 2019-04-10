@@ -48,7 +48,7 @@ function initializeApp(){
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg', 'background4.jpg', 'background5.png'];
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
     $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
     // displayRandomBG();
 }
@@ -229,3 +229,6 @@ function appendRandomizedCards() {
 //to do list:
 // 1 - media queries
 // 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
+// 3 - when resizing the screen, because the modal images is a backgruond image, the ends get cut off badly, especially on mobile
+// 4 - maybe different background images for mobile?
+// 5 - maybe wait a couple of seconds before the win modal pops up so they can see the whole picture for a bit?
