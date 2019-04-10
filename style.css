@@ -219,6 +219,7 @@ img.back:hover {
     border-radius: 20px;
     width: 60%;
     text-align: center;
+    height: 50%;
 }
 
 .modal-content {
