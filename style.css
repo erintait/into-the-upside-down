@@ -98,11 +98,10 @@ body {
 
 #game-bg {
     position: relative;
-    /* background-image: url("images/background1.jpg"); */
-    /* background-size: cover;
+    background-image: url("images/background1.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative; */
     height: 92%;
 }
 
@@ -112,7 +111,7 @@ body {
 }
 
 #game-area {
-    background-image: url(images/background1.jpg);
+    /* background-image: url(images/background1.jpg); */
     background-size: cover;
     background-position: center;
     position: relative;
