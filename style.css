@@ -2,13 +2,10 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #05263a;
+    /* background-color: #05263a; */
+    background-color: #000000;
     color: rgb(223,9,5);
     font-family: "Special Elite", serif;
-}
-
-.wrapper {
-    height: 100%;
 }
 
 .header-container {
@@ -16,15 +13,15 @@ body {
     background-position: center;
     background-size: cover;
     background-color: black;
-    text-align: center;
     height: 15%;
+    text-align: center;
 }
 
 .header-wrapper {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .game-title {
@@ -52,19 +49,19 @@ body {
 }
 
 #main-content {
-    height: 90%;
+    height: 85%;
     background-color: black;
 }
 
 #stats {
-    padding-left: 8px;
     color: red;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid rgb(223,9,5);
     border-bottom: 1px solid rgb(223,9,5);
-    position: relative;
+    height: 8%;
+    /* position: relative; */
 }
 
 .stats-title {
@@ -78,7 +75,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: relative; */
-    height: 80%;
+    height: 92%;
 }
 
 #game-bg img {
@@ -96,7 +93,7 @@ body {
     /* height: 70vh; */
     text-align: center;
     /* padding-bottom: 5px; */
-    position: absolute;
+    position: relative;
     top: 50%;
     width: 80%;
     /* display: grid; */
