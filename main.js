@@ -228,4 +228,4 @@ function appendRandomizedCards() {
 
 //to do list:
 // 1 - media queries
-// 2 - tiny black gap at the bottom, issue appears to be in #main-content
+// 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
