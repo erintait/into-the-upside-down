@@ -63,8 +63,24 @@ body {
     font-size: 26px;
 }
 
+.stats-title-desktop {
+    display: inline;
+}
+
+.stats-title-mobile {
+    display: none;
+}
+
 .label, .value {
     font-size: 15px;
+}
+
+.label-desktop {
+    display: inline;
+}
+
+.label-mobile {
+    display: none;
 }
 
 .reset {
@@ -252,23 +268,83 @@ img.back:hover {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 600px) {
+
+    /* HEADER MEDIA QUERIES */
     .header-container {
         height: 10%;
     }
+
+    .game-title {
+        display: inline;
+        font-size: 20px;
+    }
+
+    .game-title-flipped {
+        display: inline;
+        font-size: 20px;
+        margin-top: 0;
+        text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
+        transform: rotate(0deg);
+    }
+
+    .game-title-subtitle {
+        font-size: 10px;
+        margin-top: 0;
+    }
+
+    /* STATS MEDIA QUERIES */
+
+    #stats {
+        height: 8%;
+    }
+
+    .stats-title-desktop {
+        display: none;
+    }
+
+    .stats-title-mobile {
+        display: inline-block;
+        font-size: 18px;
+        margin-left: 3px;
+    }
+
+    .label, .value {
+        font-size: 12px;
+        margin: 0 3px;
+        text-align: center;
+    }
+
+    .label-desktop {
+        display: none;
+    }
+
+    .label-mobile {
+        display: inline-block;
+    }
+
+    .reset {
+        font-size: 16px;
+        padding: 5px;
+        margin-right: 3px;
+    }
+
+    /* MAIN CONTENT MEDIA QUERIES */
 
     #main-content {
         height: 90%;
     }
 
     #game-bg {
-        height: 95%;
+        height: 98%;
     }
 
-    #stats {
-        height: 5%;
-    }
-    
+    /* CARD MEDIA QUERIES */
+
     .card-container {
         width: 25%;
     }
+}
+
+@media only screen and (max-width: 320px) {
+
 }
