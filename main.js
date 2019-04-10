@@ -49,7 +49,7 @@ function initializeApp(){
     addClickToClose();
     appendRandomizedCards(cardArray);
     var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
     // displayRandomBG();
 }
 
