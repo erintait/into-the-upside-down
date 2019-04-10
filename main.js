@@ -232,3 +232,4 @@ function appendRandomizedCards() {
 // 3 - when resizing the screen, because the modal images is a backgruond image, the ends get cut off badly, especially on mobile
 // 4 - maybe different background images for mobile?
 // 5 - maybe wait a couple of seconds before the win modal pops up so they can see the whole picture for a bit?
+// meta viewport tag

@@ -105,13 +105,7 @@ body {
     height: 92%;
 }
 
-#game-bg img {
-    /* display: block; */
-    /* height: 100%; */
-}
-
 #game-area {
-    /* background-image: url(images/background1.jpg); */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -257,3 +251,24 @@ img.back:hover {
 
 /* MEDIA QUERIES */
 
+@media only screen and (max-width: 600px) {
+    .header-container {
+        height: 10%;
+    }
+
+    #main-content {
+        height: 90%;
+    }
+
+    #game-bg {
+        height: 95%;
+    }
+
+    #stats {
+        height: 5%;
+    }
+    
+    .card-container {
+        width: 25%;
+    }
+}
