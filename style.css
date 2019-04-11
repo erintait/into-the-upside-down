@@ -57,6 +57,7 @@ body {
     border-top: 1px solid rgb(223,9,5);
     border-bottom: 1px solid rgb(223,9,5);
     height: 8%;
+    box-sizing: border-box;
 }
 
 .stats-title {
@@ -267,6 +268,40 @@ img.back:hover {
 
 /* MEDIA QUERIES */
 
+@media only screen and (max-width: 1370px) {
+
+    .header-container {
+        height: 20%;
+    }
+
+    .game-title {
+        font-size: 20px;
+    }
+
+    .game-title-flipped {
+        font-size: 50px;
+        margin-top: -15px;
+    }
+
+    .game-title-subtitle {
+        font-size: 15px;
+    }
+
+    #stats {
+        height: 10%;
+    }
+
+    #main-content {
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .card-container {
+        width: 15%;
+    }
+}
+
 @media only screen and (max-width: 600px) {
 
     /* HEADER MEDIA QUERIES */
@@ -276,13 +311,12 @@ img.back:hover {
 
     .game-title {
         display: inline;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .game-title-flipped {
         display: inline;
         font-size: 20px;
-        margin-top: 0;
         text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
         transform: rotate(0deg);
     }
@@ -331,11 +365,11 @@ img.back:hover {
     /* MAIN CONTENT MEDIA QUERIES */
 
     #main-content {
-        height: 90%;
+        height: 100%;
     }
 
     #game-bg {
-        height: 98%;
+        height: 100%;
     }
 
     /* CARD MEDIA QUERIES */
@@ -343,8 +377,10 @@ img.back:hover {
     .card-container {
         width: 25%;
     }
-}
 
-@media only screen and (max-width: 320px) {
-
+    @media only screen and (max-height: 760px){
+        #main-content {
+            height: 110%;
+        }
+    }
 }

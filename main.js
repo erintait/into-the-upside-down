@@ -39,33 +39,20 @@ cardArray = [
     "images/card7.jpg",
     "images/card8.jpg",
     "images/card9.jpg"
-    // "images/card10.jpg"
 ];
 var randomizedOnce = [];
 
 function initializeApp(){
+    displayRandomBG();
     addClickToCards();
     addClickToReset();
     addClickToClose();
     appendRandomizedCards(cardArray);
-    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
-    // displayRandomBG();
 }
 
-// think i need jQuery mobile for this
-// $( window ).on( "orientationchange", function( event ) {
-// 	console.log(event.orientation);
-// 	var bgArray = ['background4.jpg', 'background5.png'];
-// 	$('#game-area').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
-// });
-
-$(document).ready(function() {
-
-});
-
 function displayRandomBG(){
-    
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
 }
 
 function displayStats(){
@@ -92,16 +79,20 @@ function reset_stats(){
     if (!$('.modal').hasClass('modal-hide')){
         $('.modal').addClass('modal-hide');
     }
-    // displayRandomBG();
+    // $('.reset').off();
     games_played++;
     matches = 0;
     match_counter = 0;
     attempts = 0;
+    first_card_clicked === null;
+    second_card_clicked === null;
     displayStats();
     if(attempts === 0) {
         accuracy = '0.00%';
     }
     $('.accuracy .value').text(accuracy);
+    $('.card').removeClass('hidden');
+    $('.card').removeClass('fade');
     cardArray = [
         "images/card1.jpg",
         "images/card2.jpg",
@@ -121,15 +112,13 @@ function reset_stats(){
         "images/card7.jpg",
         "images/card8.jpg",
         "images/card9.jpg"
-        // "images/card10.jpg"
     ];
-    $('.card').removeClass('hidden');
-    $('.card').removeClass('fade');
     setTimeout(function(){
         appendRandomizedCards(cardArray);
+        $('.card').off();
         addClickToCards();
     }, 1000);
-    
+    // $('.reset').on("click", reset_stats);
 }
 
 function revealCard(clickedCard){
@@ -229,7 +218,9 @@ function appendRandomizedCards() {
 //to do list:
 // 1 - media queries
 // 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
-// 3 - when resizing the screen, because the modal images is a backgruond image, the ends get cut off badly, especially on mobile
-// 4 - maybe different background images for mobile?
-// 5 - maybe wait a couple of seconds before the win modal pops up so they can see the whole picture for a bit?
+    // possible fix - empty and rebuild gameboard on reset
+
+// 3 - maybe different background images for mobile?
+// 4 - maybe wait a couple of seconds before the win modal pops up so they can see the whole picture for a bit?
+    // setTimeout doesn't appear to work for this
 // meta viewport tag
