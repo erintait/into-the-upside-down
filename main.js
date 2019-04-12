@@ -75,6 +75,39 @@ function closeModal(){
     $('.modal').addClass('modal-hide');
 }
 
+function reset_statsB(){
+    var cardContainerArray = [];
+    
+    var frontDiv = $('<div>', {class: 'front'});
+    var backDiv = $('<div>', {class: 'back'});
+
+    $('#game-area').empty();
+
+    for(var i = 0; i < 18; i++){
+        var cardContainerDiv = $('<div>', {class: 'card-container', index: i});
+        cardContainerArray.push(cardContainerDiv);
+
+        for(var i = 0; i < 18; i++){
+            var rotation = i;
+            var cardDiv = $('<div>', {class: 'card'});
+
+
+            cardContainerArray[i]
+        }
+    }
+    console.log('array of card container divs', cardContainerArray);
+
+    //create front div
+    //create back div
+    //append back card image to back div
+    //(still need to append random images to front divs at this point)
+    //append front and back divs to card div
+    //append card div to card container
+    //append card container to game area
+    //apply shuffle to place images in front divs
+    //apply click handlers to card
+}
+
 function reset_stats(){
     if (!$('.modal').hasClass('modal-hide')){
         $('.modal').addClass('modal-hide');
@@ -165,7 +198,7 @@ function handleCardClick(){
             if(match_counter === total_possible_matches) {
                 setTimeout(function(){
                     $('#modal').removeClass('modal-hide');
-                }, 2000);
+                }, 3000);
             }
         }
         else {
@@ -207,11 +240,12 @@ function shuffleCards(cardsToShuffle) {
 }
 
 function appendRandomizedCards() {
+    $('div .front').empty();
     var shuffledCards = shuffleCards(cardArray);
     var cardDivs = $('div .front');
     for (var i = 0; i < cardDivs.length; i++) {
         var targetedDiv = cardDivs[i];
-        $(targetedDiv).html('<img src=' + shuffledCards[i] + '>');
+        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
     }
 }
 
@@ -221,6 +255,3 @@ function appendRandomizedCards() {
     // possible fix - empty and rebuild gameboard on reset
 
 // 3 - maybe different background images for mobile?
-// 4 - maybe wait a couple of seconds before the win modal pops up so they can see the whole picture for a bit?
-    // setTimeout doesn't appear to work for this
-// meta viewport tag
