@@ -112,7 +112,9 @@ function reset_stats(){
     if (!$('.modal').hasClass('modal-hide')){
         $('.modal').addClass('modal-hide');
     }
-    // $('.reset').off();
+    $('#game-area').empty();
+    rebuildGameboard();
+
     games_played++;
     matches = 0;
     match_counter = 0;
@@ -124,8 +126,6 @@ function reset_stats(){
         accuracy = '0.00%';
     }
     $('.accuracy .value').text(accuracy);
-    $('.card').removeClass('hidden');
-    $('.card').removeClass('fade');
     cardArray = [
         "images/card1.jpg",
         "images/card2.jpg",
@@ -146,12 +146,23 @@ function reset_stats(){
         "images/card8.jpg",
         "images/card9.jpg"
     ];
-    setTimeout(function(){
-        appendRandomizedCards(cardArray);
-        $('.card').off();
-        addClickToCards();
-    }, 1000);
-    // $('.reset').on("click", reset_stats);
+    appendRandomizedCards(cardArray);
+    $('.card').off();
+    addClickToCards();
+}
+
+function rebuildGameboard(){
+    for(var i = 0; i < 18; i++){
+        var cardContainerDiv = $('<div>').addClass('card-container');
+        var cardDiv = $('<div>').addClass('card');
+        var backDiv = $('<div>').addClass('back');
+        var frontDiv = $('<div>').addClass('front');
+        $(backDiv).append('<img src="images/back2.png">');
+        $(cardDiv).append(frontDiv);
+        $(cardDiv).append(backDiv);
+        $(cardContainerDiv).append(cardDiv);
+        $('#game-area').append(cardContainerDiv);
+    }
 }
 
 function revealCard(clickedCard){
