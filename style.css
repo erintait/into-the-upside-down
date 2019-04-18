@@ -136,8 +136,8 @@ body {
 /* CARD CSS*/
 
 .card-container {
-    margin: 0 auto;
-    width: 16%;
+    margin: 0px 2px;
+    width: 15%;
     display: inline-block;
 }
 
@@ -244,9 +244,16 @@ img.back:hover {
     display: none;
 }
 
+.win-img {
+    width: 80%;
+    position: absolute;
+
+}
+
 .win {
     font-size: 40px;
     text-shadow: 1px 1px black;
+    position: relative;
 }
 
 .win p {
