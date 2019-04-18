@@ -175,6 +175,8 @@ body {
 .back img {
     transition: opacity 0.5s;
     max-width: 100%;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
 }
 
 .front > img {
