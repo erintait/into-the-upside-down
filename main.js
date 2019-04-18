@@ -1,5 +1,8 @@
 $(document).ready(function() {
     initializeApp();
+    $(window).on('orientationchange', function(event) {
+        console.log(orientation);
+    });
 });
 
 var first_card_clicked = null;
@@ -17,35 +20,39 @@ var accuracy = 0;
 var games_played = 0;
 
 // cards
-
 cardArray = [
-    "images/card01.png",
-    "images/card02.png",
-    "images/card03.png",
-    "images/card04.png",
-    "images/card05.png",
-    "images/card06.png",
-    "images/card07.png",
-    "images/card08.png",
-    "images/card09.png",
-    "images/card10.png",
-    "images/card01.png",
-    "images/card02.png",
-    "images/card03.png",
-    "images/card04.png",
-    "images/card05.png",
-    "images/card06.png",
-    "images/card07.png",
-    "images/card08.png",
-    "images/card09.png",
-    "images/card10.png"
+    "images/card1.jpg",
+    "images/card2.jpg",
+    "images/card3.jpg",
+    "images/card4.jpg",
+    "images/card5.jpg",
+    "images/card6.jpg",
+    "images/card7.jpg",
+    "images/card8.jpg",
+    "images/card9.jpg",
+    "images/card1.jpg",
+    "images/card2.jpg",
+    "images/card3.jpg",
+    "images/card4.jpg",
+    "images/card5.jpg",
+    "images/card6.jpg",
+    "images/card7.jpg",
+    "images/card8.jpg",
+    "images/card9.jpg"
 ];
 var randomizedOnce = [];
 
 function initializeApp(){
+    displayRandomBG();
     addClickToCards();
     addClickToReset();
-    appendRandomizedCards();
+    addClickToClose();
+    appendRandomizedCards(cardArray);
+}
+
+function displayRandomBG(){
+    var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
 }
 
 function displayStats(){
@@ -60,52 +67,113 @@ function addClickToReset(){
     $('.reset').click(reset_stats);
 }
 
+function addClickToClose(){
+    $('.close').click(closeModal);
+}
+
+function closeModal(){
+    $('.modal').addClass('modal-hide');
+}
+
+function reset_statsB(){
+    var cardContainerArray = [];
+    
+    var frontDiv = $('<div>', {class: 'front'});
+    var backDiv = $('<div>', {class: 'back'});
+
+    $('#game-area').empty();
+
+    for(var i = 0; i < 18; i++){
+        var cardContainerDiv = $('<div>', {class: 'card-container', index: i});
+        cardContainerArray.push(cardContainerDiv);
+
+        for(var i = 0; i < 18; i++){
+            var rotation = i;
+            var cardDiv = $('<div>', {class: 'card'});
+
+
+            cardContainerArray[i]
+        }
+    }
+    console.log('array of card container divs', cardContainerArray);
+
+    //create front div
+    //create back div
+    //append back card image to back div
+    //(still need to append random images to front divs at this point)
+    //append front and back divs to card div
+    //append card div to card container
+    //append card container to game area
+    //apply shuffle to place images in front divs
+    //apply click handlers to card
+}
+
 function reset_stats(){
-    debugger;
+    if (!$('.modal').hasClass('modal-hide')){
+        $('.modal').addClass('modal-hide');
+    }
+    $('#game-area').empty();
+    rebuildGameboard();
+
     games_played++;
     matches = 0;
+    match_counter = 0;
     attempts = 0;
+    first_card_clicked === null;
+    second_card_clicked === null;
     displayStats();
     if(attempts === 0) {
         accuracy = '0.00%';
     }
     $('.accuracy .value').text(accuracy);
-    $('.card').removeClass('hide');
     cardArray = [
-        "images/card01.png",
-        "images/card02.png",
-        "images/card03.png",
-        "images/card04.png",
-        "images/card05.png",
-        "images/card06.png",
-        "images/card07.png",
-        "images/card08.png",
-        "images/card09.png",
-        "images/card10.png",
-        "images/card01.png",
-        "images/card02.png",
-        "images/card03.png",
-        "images/card04.png",
-        "images/card05.png",
-        "images/card06.png",
-        "images/card07.png",
-        "images/card08.png",
-        "images/card09.png",
-        "images/card10.png"
+        "images/card1.jpg",
+        "images/card2.jpg",
+        "images/card3.jpg",
+        "images/card4.jpg",
+        "images/card5.jpg",
+        "images/card6.jpg",
+        "images/card7.jpg",
+        "images/card8.jpg",
+        "images/card9.jpg",
+        "images/card1.jpg",
+        "images/card2.jpg",
+        "images/card3.jpg",
+        "images/card4.jpg",
+        "images/card5.jpg",
+        "images/card6.jpg",
+        "images/card7.jpg",
+        "images/card8.jpg",
+        "images/card9.jpg"
     ];
-    appendRandomizedCards();
+    appendRandomizedCards(cardArray);
+    $('.card').off();
+    addClickToCards();
+}
+
+function rebuildGameboard(){
+    for(var i = 0; i < 18; i++){
+        var cardContainerDiv = $('<div>').addClass('card-container');
+        var cardDiv = $('<div>').addClass('card');
+        var backDiv = $('<div>').addClass('back');
+        var frontDiv = $('<div>').addClass('front');
+        $(backDiv).append('<img src="images/back.png">');
+        $(cardDiv).append(frontDiv);
+        $(cardDiv).append(backDiv);
+        $(cardContainerDiv).append(cardDiv);
+        $('#game-area').append(cardContainerDiv);
+    }
 }
 
 function revealCard(clickedCard){
-
-    $(clickedCard).addClass('hide');
+    $(clickedCard).addClass('hidden');
 }
 
 function hideMismatchedCards(){
-    $(first_card_clicked).removeClass('hide');
-    $(second_card_clicked).removeClass('hide');
-    first_card_clicked=null;
-    second_card_clicked=null;
+    $(first_card_clicked).removeClass('hidden');
+    $(second_card_clicked).removeClass('hidden');
+    first_card_clicked = null;
+    second_card_clicked = null;
 }
 
 function addClickToCards(){
@@ -121,42 +189,54 @@ function handleCardClick(){
         first_card_clicked = event.currentTarget;
         first_card_source = $(event.currentTarget).find('.front > img').attr('src');
         revealCard(first_card_clicked);
+        $(first_card_clicked).off();
         return
     }
     else if(second_card_clicked === null) {
         second_card_clicked = event.currentTarget;
         second_card_source = $(event.currentTarget).find('.front > img').attr('src');
         revealCard(second_card_clicked);
+        $(second_card_clicked).off();
         if(first_card_source === second_card_source) {
             matches++;
             match_counter++;
             attempts++;
             displayStats();
+            $(first_card_clicked).addClass('fade');
+            $(second_card_clicked).addClass('fade');
             first_card_clicked = null;
             second_card_clicked = null;
             if(match_counter === total_possible_matches) {
-                setTimeout($(function(){alert('You won! Hit reset to try again')}, 2000));
+                setTimeout(function(){
+                    $('#modal').removeClass('modal-hide');
+                }, 3000);
             }
         }
         else {
             cant_click_card = true;
+            $(first_card_clicked).on("click", handleCardClick);
+            $(second_card_clicked).on("click", handleCardClick);
             attempts++;
             displayStats();
-            setTimeout(hideMismatchedCards, 2000);
+            setTimeout(hideMismatchedCards, 1500);
             cant_click_card = false;
             return
         }
     }
+}
 
+window.onclick = function(event) {
+    if (event.target == modal) {
+        $('#modal').addClass('modal-hide');
+    }
 }
 
 //grabbed following code from https://bost.ocks.org/mike/shuffle/
 
-function shuffleCards(arrayToShuffle) {
+function shuffleCards(cardsToShuffle) {
     var shuffledCards = [];
-    var arrayLength = arrayToShuffle.length;
+    var arrayLength = cardsToShuffle.length;
     var randomNumber;
-
     // While there remain elements to shuffle…
     while (arrayLength) {
 
@@ -164,39 +244,25 @@ function shuffleCards(arrayToShuffle) {
         var randomNumber = Math.floor(Math.random() * arrayLength--);
 
         // And move it to the new array.
-        shuffledCards.push(arrayToShuffle.splice(randomNumber, 1)[0]);
+        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
     }
 
     return shuffledCards;
 }
 
 function appendRandomizedCards() {
+    $('div .front').empty();
     var shuffledCards = shuffleCards(cardArray);
     var cardDivs = $('div .front');
     for (var i = 0; i < cardDivs.length; i++) {
         var targetedDiv = cardDivs[i];
-        $(targetedDiv).html('<img src=' + shuffledCards[i] + '>');
+        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
     }
 }
 
-//priorities--
+//to do list:
+// 1 - media queries
+// 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
+    // possible fix - empty and rebuild gameboard on reset
 
-// more functionality:
-// dynamically create game board with jquery?
-
-// fix css and make it not so ugly
-// edit photos to at least give them a border so it looks better against the background of the page
-
-// potential things for later-
-// ask the owners of internet dogs i follow if i can use their dogs' photos - likely would only do this after the first set is finished and the css is fixed, so there is something to show them when i approach them.
-// perhaps when a match involving that dog is completed, there is a link offered to information about the breed and any related social media fan pages the owner may have for their dog
-// if this falls through - maybe try to find other professional stock photos with similar backgrounds - may look more professional if the backdrops are similar, would also make the dogs themselves stand out more
-// maybe play random dog-related sound effect when a match is made
-
-// known bugs to fix:
-// 1 when you click the same image twice, it sees the sources are the same and considers them a match
-// 2 if you click an unmatched card and then click a previously matched card, it sees they do not match, and flips both the unmatched AND the previously matched cards over.
-    // possible solution: put all the playable cards into an array, remove them from the array of clickable elements once it is matched?
-
-
-
+// 3 - maybe different background images for mobile?
