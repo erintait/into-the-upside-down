@@ -1,8 +1,5 @@
 $(document).ready(function() {
     initializeApp();
-    $(window).on('orientationchange', function(event) {
-        console.log(orientation);
-    });
 });
 
 var first_card_clicked = null;
@@ -75,39 +72,6 @@ function closeModal(){
     $('.modal').addClass('modal-hide');
 }
 
-function reset_statsB(){
-    var cardContainerArray = [];
-    
-    var frontDiv = $('<div>', {class: 'front'});
-    var backDiv = $('<div>', {class: 'back'});
-
-    $('#game-area').empty();
-
-    for(var i = 0; i < 18; i++){
-        var cardContainerDiv = $('<div>', {class: 'card-container', index: i});
-        cardContainerArray.push(cardContainerDiv);
-
-        for(var i = 0; i < 18; i++){
-            var rotation = i;
-            var cardDiv = $('<div>', {class: 'card'});
-
-
-            cardContainerArray[i]
-        }
-    }
-    console.log('array of card container divs', cardContainerArray);
-
-    //create front div
-    //create back div
-    //append back card image to back div
-    //(still need to append random images to front divs at this point)
-    //append front and back divs to card div
-    //append card div to card container
-    //append card container to game area
-    //apply shuffle to place images in front divs
-    //apply click handlers to card
-}
-
 function reset_stats(){
     if (!$('.modal').hasClass('modal-hide')){
         $('.modal').addClass('modal-hide');
@@ -157,7 +121,7 @@ function rebuildGameboard(){
         var cardDiv = $('<div>').addClass('card');
         var backDiv = $('<div>').addClass('back');
         var frontDiv = $('<div>').addClass('front');
-        $(backDiv).append('<img src="images/back.png">');
+        $(backDiv).append('<img src="images/back.png">').attr('draggable', 'false');
         $(cardDiv).append(frontDiv);
         $(cardDiv).append(backDiv);
         $(cardContainerDiv).append(cardDiv);
