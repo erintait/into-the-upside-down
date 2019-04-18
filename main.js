@@ -157,7 +157,7 @@ function rebuildGameboard(){
         var cardDiv = $('<div>').addClass('card');
         var backDiv = $('<div>').addClass('back');
         var frontDiv = $('<div>').addClass('front');
-        $(backDiv).append('<img src="images/back2.png">');
+        $(backDiv).append('<img src="images/back.png">');
         $(cardDiv).append(frontDiv);
         $(cardDiv).append(backDiv);
         $(cardContainerDiv).append(cardDiv);
