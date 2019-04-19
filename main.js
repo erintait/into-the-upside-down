@@ -47,9 +47,50 @@ function initializeApp(){
     appendRandomizedCards(cardArray);
 }
 
+function addClickToCards(){
+    $('.card').click(handleCardClick);
+}
+
+function addClickToClose(){
+    $('.close').click(closeModal);
+}
+
+function addClickToReset(){
+    $('.reset').click(reset_stats);
+}
+
 function displayRandomBG(){
     var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
     $('body').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+}
+
+//grabbed following function from https://bost.ocks.org/mike/shuffle/
+
+function shuffleCards(cardsToShuffle) {
+    var shuffledCards = [];
+    var arrayLength = cardsToShuffle.length;
+    var randomNumber;
+    // While there remain elements to shuffle…
+    while (arrayLength) {
+
+        // Pick a remaining element…
+        var randomNumber = Math.floor(Math.random() * arrayLength--);
+
+        // And move it to the new array.
+        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
+    }
+
+    return shuffledCards;
+}
+
+function appendRandomizedCards() {
+    $('div .front').empty();
+    var shuffledCards = shuffleCards(cardArray);
+    var cardDivs = $('div .front');
+    for (var i = 0; i < cardDivs.length; i++) {
+        var targetedDiv = cardDivs[i];
+        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
+    }
 }
 
 function displayStats(){
@@ -60,16 +101,15 @@ function displayStats(){
     $('.accuracy .value').text(accuracy);
 }
 
-function addClickToReset(){
-    $('.reset').click(reset_stats);
-}
-
-function addClickToClose(){
-    $('.close').click(closeModal);
-}
 
 function closeModal(){
     $('.modal').addClass('modal-hide');
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        $('#modal').addClass('modal-hide');
+    }
 }
 
 function reset_stats(){
@@ -140,10 +180,6 @@ function hideMismatchedCards(){
     second_card_clicked = null;
 }
 
-function addClickToCards(){
-    $('.card').click(handleCardClick);
-}
-
 function handleCardClick(){
     if(cant_click_card){
         return;
@@ -188,45 +224,3 @@ function handleCardClick(){
         }
     }
 }
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        $('#modal').addClass('modal-hide');
-    }
-}
-
-//grabbed following code from https://bost.ocks.org/mike/shuffle/
-
-function shuffleCards(cardsToShuffle) {
-    var shuffledCards = [];
-    var arrayLength = cardsToShuffle.length;
-    var randomNumber;
-    // While there remain elements to shuffle…
-    while (arrayLength) {
-
-        // Pick a remaining element…
-        var randomNumber = Math.floor(Math.random() * arrayLength--);
-
-        // And move it to the new array.
-        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
-    }
-
-    return shuffledCards;
-}
-
-function appendRandomizedCards() {
-    $('div .front').empty();
-    var shuffledCards = shuffleCards(cardArray);
-    var cardDivs = $('div .front');
-    for (var i = 0; i < cardDivs.length; i++) {
-        var targetedDiv = cardDivs[i];
-        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
-    }
-}
-
-//to do list:
-// 1 - media queries
-// 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
-    // possible fix - empty and rebuild gameboard on reset
-
-// 3 - maybe different background images for mobile?
