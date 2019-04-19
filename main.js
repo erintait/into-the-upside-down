@@ -49,7 +49,7 @@ function initializeApp(){
 
 function displayRandomBG(){
     var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+    $('body').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
 }
 
 function displayStats(){
