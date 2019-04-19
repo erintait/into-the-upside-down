@@ -277,20 +277,20 @@ img.back:hover {
     /* HEADER MEDIA QUERIES */
 
     .game-title {
-        display: inline;
+        display: inline-block;
         font-size: 22px;
     }
 
     .game-title-flipped {
-        display: inline;
-        font-size: 20px;
-        text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
-        transform: rotate(0deg);
+        display: inline-block;
+        font-size: 26px;
+        text-shadow: -3px -3px 3px rgba(0,0,0,0.7);
+        transform: rotate(-180deg);
     }
 
     .game-title-subtitle {
         font-size: 10px;
-        margin-top: 0;
+        margin-top: 4px;
     }
 
     /* STATS MEDIA QUERIES */
