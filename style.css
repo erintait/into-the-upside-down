@@ -1,11 +1,13 @@
 body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    /* background-color: #05263a; */
     background-color: #000000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: rgb(223,9,5);
     font-family: "Special Elite", serif;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
 }
 
 /* HEADER */
@@ -14,22 +16,18 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(images/heroimg.png);
     background-position: center;
     background-size: cover;
-    height: 15%;
     text-align: center;
 }
 
 .header-wrapper {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    padding: 1%;
 }
 
 .game-title {
     font-size: 30px;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
     margin-top: 0;
     margin-bottom: 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
 }
 
 .game-title-flipped {
@@ -45,6 +43,7 @@ body {
 
 .game-title-subtitle {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
+    margin-bottom: 0;
 }
 
 /* STATS */
@@ -56,12 +55,13 @@ body {
     align-items: center;
     border-top: 1px solid rgb(223,9,5);
     border-bottom: 1px solid rgb(223,9,5);
-    height: 8%;
+    background-color: black;
     box-sizing: border-box;
 }
 
 .stats-title {
     font-size: 26px;
+    margin: 0;
 }
 
 .stats-title-desktop {
@@ -94,6 +94,7 @@ body {
     transition: background-color .5s;
     border-radius: 10px;
     cursor: pointer;
+    margin: 5px 0;
 }
 
 .reset:focus{
@@ -108,29 +109,10 @@ body {
 
 /* MAIN CONTENT */
 
-#main-content {
-    height: 85%;
-    background-color: black;
-}
-
-#game-bg {
-    position: relative;
-    background-image: url("images/background1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 92%;
-}
-
 #game-area {
-    background-size: cover;
-    background-position: center;
-    position: relative;
     text-align: center;
-    width: 80%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 3px;
+    user-select: none;
 }
 
 /* CARD CSS*/
@@ -163,10 +145,6 @@ body {
     width: 100%;
 }
 
-.front {
-    position: relative;
-}
-
 .back {
     position: absolute;
 }
@@ -174,6 +152,8 @@ body {
 .back img {
     transition: opacity 0.5s;
     max-width: 100%;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
 }
 
 .front > img {
@@ -218,7 +198,7 @@ img.back:hover {
 }
 
 .modal-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/win.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/win.jpg);
     background-color: #000000;
     background-position: center;
     background-size: cover;
@@ -276,11 +256,6 @@ img.back:hover {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 1370px) {
-
-    .header-container {
-        height: 20%;
-    }
-
     .game-title {
         font-size: 20px;
     }
@@ -293,28 +268,11 @@ img.back:hover {
     .game-title-subtitle {
         font-size: 15px;
     }
-
-    #stats {
-        height: 10%;
-    }
-
-    #main-content {
-        height: 100%;
-    }
 }
 
-@media only screen and (max-width: 735px) {
-    .card-container {
-        width: 15%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 835px) {
 
     /* HEADER MEDIA QUERIES */
-    .header-container {
-        height: 10%;
-    }
 
     .game-title {
         display: inline;
@@ -334,10 +292,6 @@ img.back:hover {
     }
 
     /* STATS MEDIA QUERIES */
-
-    #stats {
-        height: 8%;
-    }
 
     .stats-title-desktop {
         display: none;
@@ -369,25 +323,9 @@ img.back:hover {
         margin-right: 3px;
     }
 
-    /* MAIN CONTENT MEDIA QUERIES */
-
-    #main-content {
-        height: 100%;
-    }
-
-    #game-bg {
-        height: 100%;
-    }
-
     /* CARD MEDIA QUERIES */
 
     .card-container {
         width: 25%;
-    }
-
-    @media only screen and (max-height: 760px){
-        #main-content {
-            height: 110%;
-        }
     }
 }

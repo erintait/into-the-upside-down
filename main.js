@@ -1,8 +1,5 @@
 $(document).ready(function() {
     initializeApp();
-    $(window).on('orientationchange', function(event) {
-        console.log(orientation);
-    });
 });
 
 var first_card_clicked = null;
@@ -50,9 +47,50 @@ function initializeApp(){
     appendRandomizedCards(cardArray);
 }
 
+function addClickToCards(){
+    $('.card').click(handleCardClick);
+}
+
+function addClickToClose(){
+    $('.close').click(closeModal);
+}
+
+function addClickToReset(){
+    $('.reset').click(reset_stats);
+}
+
 function displayRandomBG(){
     var bgArray = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
-    $('#game-bg').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+    $('body').css({'background-image': 'url(images/' + bgArray[Math.floor(Math.random() * bgArray.length)] + ')'});
+}
+
+//grabbed following function from https://bost.ocks.org/mike/shuffle/
+
+function shuffleCards(cardsToShuffle) {
+    var shuffledCards = [];
+    var arrayLength = cardsToShuffle.length;
+    var randomNumber;
+    // While there remain elements to shuffle…
+    while (arrayLength) {
+
+        // Pick a remaining element…
+        var randomNumber = Math.floor(Math.random() * arrayLength--);
+
+        // And move it to the new array.
+        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
+    }
+
+    return shuffledCards;
+}
+
+function appendRandomizedCards() {
+    $('div .front').empty();
+    var shuffledCards = shuffleCards(cardArray);
+    var cardDivs = $('div .front');
+    for (var i = 0; i < cardDivs.length; i++) {
+        var targetedDiv = cardDivs[i];
+        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
+    }
 }
 
 function displayStats(){
@@ -63,49 +101,15 @@ function displayStats(){
     $('.accuracy .value').text(accuracy);
 }
 
-function addClickToReset(){
-    $('.reset').click(reset_stats);
-}
-
-function addClickToClose(){
-    $('.close').click(closeModal);
-}
 
 function closeModal(){
     $('.modal').addClass('modal-hide');
 }
 
-function reset_statsB(){
-    var cardContainerArray = [];
-    
-    var frontDiv = $('<div>', {class: 'front'});
-    var backDiv = $('<div>', {class: 'back'});
-
-    $('#game-area').empty();
-
-    for(var i = 0; i < 18; i++){
-        var cardContainerDiv = $('<div>', {class: 'card-container', index: i});
-        cardContainerArray.push(cardContainerDiv);
-
-        for(var i = 0; i < 18; i++){
-            var rotation = i;
-            var cardDiv = $('<div>', {class: 'card'});
-
-
-            cardContainerArray[i]
-        }
+window.onclick = function(event) {
+    if (event.target == modal) {
+        $('#modal').addClass('modal-hide');
     }
-    console.log('array of card container divs', cardContainerArray);
-
-    //create front div
-    //create back div
-    //append back card image to back div
-    //(still need to append random images to front divs at this point)
-    //append front and back divs to card div
-    //append card div to card container
-    //append card container to game area
-    //apply shuffle to place images in front divs
-    //apply click handlers to card
 }
 
 function reset_stats(){
@@ -176,10 +180,6 @@ function hideMismatchedCards(){
     second_card_clicked = null;
 }
 
-function addClickToCards(){
-    $('.card').click(handleCardClick);
-}
-
 function handleCardClick(){
     if(cant_click_card){
         return;
@@ -224,45 +224,3 @@ function handleCardClick(){
         }
     }
 }
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        $('#modal').addClass('modal-hide');
-    }
-}
-
-//grabbed following code from https://bost.ocks.org/mike/shuffle/
-
-function shuffleCards(cardsToShuffle) {
-    var shuffledCards = [];
-    var arrayLength = cardsToShuffle.length;
-    var randomNumber;
-    // While there remain elements to shuffle…
-    while (arrayLength) {
-
-        // Pick a remaining element…
-        var randomNumber = Math.floor(Math.random() * arrayLength--);
-
-        // And move it to the new array.
-        shuffledCards.push(cardsToShuffle.splice(randomNumber, 1)[0]);
-    }
-
-    return shuffledCards;
-}
-
-function appendRandomizedCards() {
-    $('div .front').empty();
-    var shuffledCards = shuffleCards(cardArray);
-    var cardDivs = $('div .front');
-    for (var i = 0; i < cardDivs.length; i++) {
-        var targetedDiv = cardDivs[i];
-        $(targetedDiv).append('<img src=' + shuffledCards[i] + '>');
-    }
-}
-
-//to do list:
-// 1 - media queries
-// 2 - bug when resetting too fast. after 3 quick resets everything gets squashed in the game area
-    // possible fix - empty and rebuild gameboard on reset
-
-// 3 - maybe different background images for mobile?
