@@ -331,3 +331,26 @@ img.back:hover {
         width: 25%;
     }
 }
+
+@media (max-width: 835px) and (orientation: landscape){
+    .card-container {
+        width: 25vh;
+    }
+}
+
+@media (max-width: 625px) and (orientation: landscape){
+    .card-container {
+        width: 23vh;
+    }
+}
+
+@media (max-width: 550px) and (orientation: landscape){
+    .card-container {
+        width: 19vh;
+    }
+}
+
+
+@media (min-width: 992px) and (orientation: portrait){
+
+}
