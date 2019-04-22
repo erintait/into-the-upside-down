@@ -337,3 +337,9 @@ img.back:hover {
         flex: 1 0 15%;
     }
 }
+
+@media (min-width: 992px) and (orientation: portrait){
+    .card-container {
+        flex: 0 0 25%;
+    }
+}
