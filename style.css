@@ -13,7 +13,7 @@ body {
 /* HEADER */
 
 .header-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(images/heroimg.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(images/heroimg.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -180,7 +180,7 @@ img.back:hover {
     opacity: 0;
 }
 
-/* MODAL CSS */
+/* WIN MODAL CSS */
 
 .modal {
     display: flex;
@@ -336,21 +336,4 @@ img.back:hover {
     .card-container {
         flex: 1 0 15%;
     }
-}
-
-@media (max-width: 625px) and (orientation: landscape){
-    .card-container {
-        /* width: 23vh; */
-    }
-}
-
-@media (max-width: 550px) and (orientation: landscape){
-    .card-container {
-        /* width: 19vh; */
-    }
-}
-
-
-@media (min-width: 992px) and (orientation: portrait){
-
 }
